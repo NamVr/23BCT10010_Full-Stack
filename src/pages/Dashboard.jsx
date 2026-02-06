@@ -1,19 +1,28 @@
-import logs from "../data/logs";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Dashboard = () => {
-	const total = logs.reduce((acc, i) => acc + i.carbon, 0);
+	const { logout } = useAuth();
+	const navigate = useNavigate();
+
+	const handleLogout = () => {
+		logout();
+		navigate("/login");
+	};
 
 	return (
 		<div>
-			<p> Total {total} </p>
+			<h2>EcoTrack Dashboard</h2>
 
-			<ul>
-				{logs.map((log) => (
-					<li key={log.id}>
-						{log.activity}: {log.carbon}kg
-					</li>
-				))}
-			</ul>
+			<nav>
+				<Link to="">Overview</Link> | <Link to="reports">Logs</Link> |{" "}
+				<Link to="settings">Settings</Link>
+			</nav>
+
+			<button onClick={handleLogout}>Logout</button>
+
+			<hr />
+			<Outlet />
 		</div>
 	);
 };
