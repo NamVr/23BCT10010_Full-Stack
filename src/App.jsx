@@ -5,14 +5,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import ProtectedRoute from "./routes/ProtectedRoute";
 
-import Header from "./components/Header.jsx";
 import Login from "./pages/Login";
 import Overview from "./pages/Overview";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
-import Logs from "./pages/Logs.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
-import useTrigger from "./triggers/useTrigger.jsx";
 
 function App() {
 	return (
