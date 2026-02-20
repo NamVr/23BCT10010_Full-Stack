@@ -1,38 +1,52 @@
-import { useState } from "react";
-import "./App.css";
-
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext.jsx";
+import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
-import Login from "./pages/Login";
-import Overview from "./pages/Overview";
-import Reports from "./pages/Reports";
-import Settings from "./pages/Settings";
-import Dashboard from "./pages/Dashboard.jsx";
+const Login = lazy(() => import("./pages/Login"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Overview = lazy(() => import("./pages/Overview"));
+const Reports = lazy(() => import("./pages/Reports"));
+const Settings = lazy(() => import("./pages/Settings"));
 
-function App() {
+const App = () => {
 	return (
 		<AuthProvider>
 			<BrowserRouter>
-				<Routes>
-					<Route path="/login" element={<Login />} />
-					<Route
-						path="/"
-						element={
-							<ProtectedRoute>
-								<Dashboard />
-							</ProtectedRoute>
-						}
-					>
-						<Route index element={<Overview />} />
-						<Route path="reports/" element={<Reports />} />
-						<Route path="settings/" element={<Settings />} />
-					</Route>
-				</Routes>
+				<Suspense
+					fallback={
+						<Box
+							display="flex"
+							justifyContent="center"
+							alignItems="center"
+							minHeight="100vh"
+						>
+							<CircularProgress />
+						</Box>
+					}
+				>
+					<Routes>
+						<Route path="/login" element={<Login />} />
+
+						<Route
+							path="/dashboard"
+							element={
+								<ProtectedRoute>
+									<Dashboard />
+								</ProtectedRoute>
+							}
+						>
+							<Route index element={<Overview />} />
+							<Route path="reports" element={<Reports />} />
+							<Route path="settings" element={<Settings />} />
+						</Route>
+					</Routes>
+				</Suspense>
 			</BrowserRouter>
 		</AuthProvider>
 	);
-}
+};
 
 export default App;

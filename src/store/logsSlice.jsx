@@ -1,9 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchLogs = createAsyncThunk("logs/fetchLogs", async () => {
-	// Artificial Delay of 1 second.
 	await new Promise((resolve) => setTimeout(resolve, 1000));
-
 	return [
 		{ id: 1, activity: "Car Travel", carbon: 4 },
 		{ id: 2, activity: "Electricity Usage", carbon: 6 },
