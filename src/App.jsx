@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -28,6 +28,10 @@ const App = () => {
 					}
 				>
 					<Routes>
+						<Route
+							path="/"
+							element={<Navigate to="/login" replace />}
+						/>
 						<Route path="/login" element={<Login />} />
 
 						<Route

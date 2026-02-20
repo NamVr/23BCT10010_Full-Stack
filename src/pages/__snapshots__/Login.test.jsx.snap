@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Login Page matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root css-1ly3o13-MuiContainer-root"
+  >
+    <div
+      class="MuiBox-root css-qh8bnn"
+    >
+      <div
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 css-sa4zru-MuiPaper-root"
+        style="--Paper-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom css-1it4a80-MuiTypography-root"
+        >
+          EcoTrack Login
+        </h2>
+        <p
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-2qvmir-MuiTypography-root"
+        >
+          Sign in to access your environmental impact dashboard.
+        </p>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-1qc9thh-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
