@@ -57,6 +57,14 @@ const Dashboard = () => {
 						</Button>
 						<Button
 							component={Link}
+							to="water"
+							variant="text"
+							fullWidth
+						>
+							Water Tracker
+						</Button>
+						<Button
+							component={Link}
 							to="reports"
 							variant="text"
 							fullWidth

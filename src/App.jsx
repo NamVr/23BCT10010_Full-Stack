@@ -10,6 +10,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Overview = lazy(() => import("./pages/Overview"));
 const Reports = lazy(() => import("./pages/Reports"));
 const Settings = lazy(() => import("./pages/Settings"));
+const WaterTracker = lazy(() => import("./pages/WaterTracker"));
 
 const App = () => {
 	return (
@@ -45,6 +46,7 @@ const App = () => {
 							<Route index element={<Overview />} />
 							<Route path="reports" element={<Reports />} />
 							<Route path="settings" element={<Settings />} />
+							<Route path="water" element={<WaterTracker />} />
 						</Route>
 					</Routes>
 				</Suspense>
